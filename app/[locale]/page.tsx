@@ -1,118 +1,185 @@
-import { getTranslations } from 'next-intl/server'
 import Image from 'next/image'
 import MetalImg from '/public/images/metal.jpeg'
-import { Suspense } from 'react'
+import MetalImg2 from '/public/images/metal2.jpg'
 import { Section } from '@/components/Section'
+import { AnimatedText } from '@/components/AnimatedText/AnimatedText'
+// import { Boxes } from '@/components/BackgroundBoxes/BackgroundBoxes'
+import { StickyScroll } from '@/components/StickyScroll/StickyScroll'
+import { ChevronDown } from 'lucide-react'
+import { getTranslations } from 'next-intl/server'
+import { AdventageCard } from '@/components/AdventageCard'
 import InfoSection from '@/components/InfoSection/InfoSection'
 
 const App = async () => {
   const t = await getTranslations()
+
+  const content = [
+    {
+      title: t('tradingActivity'),
+      description: t('comprehensiveServices'),
+      image: MetalImg
+    },
+    {
+      title: t('coalSupply'),
+      description: t('coalSupplyDetails'),
+      image: MetalImg2
+    },
+    {
+      title: t('scrapMetalSupply'),
+      description: t('scrapMetalSupplyDetails'),
+      image: MetalImg
+    }
+  ]
+
   return (
     <div className="flex flex-col w-full">
+      <div
+        id="about"
+        className="absolute opacity-0"
+        style={{ top: '-100px' }}
+      ></div>
+      <Section moveSize={0} delay={0}>
+        <div className="flex flex-wrap">
+          <div className="w-full sm:w-8/12 relative overflow-hidden">
+            {/* <Boxes /> */}
+
+            <div className="mx-auto h-full py-10 sm:px-10">
+              <nav className="flex px-4 justify-center lg:justify-between items-center">
+                <div className="text-3xl lg:text-4xl font-bold relative z-10 ">
+                  <span>RVV CAPITAL GROUP</span>
+                </div>
+              </nav>
+              <div className="container px-4 lg:flex mt-10 items-center h-full lg:mt-0">
+                <div className="w-full">
+                  <h1 className="text-2xl lg:text-5xl font-bold relative z-10 text-center lg:text-start">
+                    <AnimatedText
+                      el="span"
+                      text={[t('leadingInternationalSupplier')]}
+                      repeatDelay={100000}
+                      className="relative z-10"
+                    />
+                  </h1>
+                  <div className="w-20 mx-auto lg:mx-0 h-2 bg-primary-700 my-10 lg:my-6 relative z-10"></div>
+                  <p className="text-lg lg:text-xl mb-10 relative z-10 text-center lg:text-start">
+                    {/* <ReadMore
+                      id="read-more-text"
+                      amountOfWords={24}
+                      text={t('missionStatement')}
+                    /> */}
+                    {t('missionStatement')}
+                  </p>
+                  <div className="lg:mr-auto lg:w-min mt-20 lg:mt-16 flex justify-center">
+                    <a
+                      href="#advantages"
+                      className="text-nowrap flex items-center relative z-10 bg-primary-700 text-white active:opacity-80 transition-opacity duration-100 text-xl font-medium px-4 py-2"
+                    >
+                      {t('moreDetails')}
+                      <ChevronDown className="w-6 h-6 mt-[2px] ml-1" />
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <Image
+            src={MetalImg}
+            alt="Leafs"
+            className="hidden md:block w-full h-48 object-cover sm:h-[calc(100vh-64px)] sm:w-4/12"
+          />
+        </div>
+      </Section>
+      <div className="flex justify-center">
+        <div className="max-w-screen-lg w-full">
+          <h1
+            className={`w-full max-w-screen-xl relative text-center mt-32 bg-gradient-to-br from-black to-stone-500 bg-clip-text font-display text-3xl font-bold tracking-[-0.02em] text-transparent drop-shadow-sm md:text-4xl lg:text-5xl md:leading-[3.4rem] lg:leading-[3.8rem]`}
+          >
+            {t('ourAdvantages')}
+            <div
+              id="advantages"
+              className="absolute opacity-0"
+              style={{ top: '-100px' }}
+            ></div>
+          </h1>
+        </div>
+      </div>
+
       <Section>
-        <div className="relative w-full z-10">
-          <div className="mx-auto">
-            <div className="relative shadow-xl sm:overflow-hidden md:px-32">
-              <div className="absolute inset-0">
-                <Suspense fallback={<div>loading...</div>}>
-                  <Image
-                    className="object-cover w-full h-full"
-                    src={MetalImg}
-                    alt="preview"
-                    fill
-                  />
-                </Suspense>
-                <div className="absolute inset-0 bg-gray-500 mix-blend-multiply" />
-              </div>
-              <div className="relative w-full px-4 py-16 sm:px-6 sm:py-24 lg:py-32 lg:px-8">
-                <p className="relative text-center md:text-start mt-5 max-w-xl text-xl md:text-2xl tracking-wide text-white font-extralight">
-                  <b className="text-2xl md:text-3xl">RVV CAPITAL GROUP</b> -{' '}
-                  {t('yourPartnerText')}
-                </p>
-                <p className="relative mt-8 text-center md:text-start mb-16 md:mb-48 max-w-xl text-xl md:text-2xl tracking-wide text-white font-extralight	">
-                  {t('hightQualityText')}
-                </p>
-              </div>
+        <div>
+          <div className="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
+            <div className="grid grid-cols-1 mt-10 text-center sm:mt-16 sm:grid-cols-2 sm:gap-x-12 gap-y-12 md:grid-cols-3 md:gap-0 xl:mt-24">
+              <AdventageCard
+                color="bg-primary-100"
+                title={t('globalPartnerNetwork')}
+                description={t('globalPartnerNetworkDetails')}
+              />
+              <AdventageCard
+                color="bg-primary-200"
+                title={t('professionalismAndReliability')}
+                description={t('professionalismAndReliabilityDetails')}
+                className="md:border-l md:border-gray-200"
+              />
+              <AdventageCard
+                color="bg-primary-300"
+                title={t('qualityAndResponsibility')}
+                description={t('qualityAndResponsibilityDetails')}
+                className="md:border-l md:border-gray-200"
+              />
+              <AdventageCard
+                color="bg-primary-300"
+                title={t('longTermCooperation')}
+                description={t('longTermCooperationDetails')}
+                className="md:border-t md:border-gray-200"
+              />
+              <AdventageCard
+                color="bg-primary-200"
+                title={t('reliablePartner')}
+                description={t('reliablePartnerDetails')}
+                className="md:border-l md:border-gray-200 md:border-t"
+              />
+              <AdventageCard
+                color=""
+                title=""
+                description=""
+                className="hidden md:block md:border-l md:border-gray-200 md:border-t"
+              />
             </div>
           </div>
         </div>
       </Section>
-      <div className="flex flex-col items-center">
-        <Section>
+      <div className="flex justify-center">
+        <div className="max-w-screen-lg w-full">
           <h1
-            className={`w-full max-w-screen-xl rellative text-center mt-32 bg-gradient-to-br from-black to-stone-500 bg-clip-text font-display text-3xl font-bold tracking-[-0.02em] text-transparent drop-shadow-sm md:text-4xl lg:text-5xl md:leading-[3.4rem] lg:leading-[3.8rem]`}
+            className={`w-full max-w-screen-xl relative text-center mt-32 bg-gradient-to-br from-black to-stone-500 bg-clip-text font-display text-3xl font-bold tracking-[-0.02em] text-transparent drop-shadow-sm md:text-4xl lg:text-5xl md:leading-[3.4rem] lg:leading-[3.8rem]`}
           >
-            {t('aboutUs')}
+            {t('mainActivities')}
             <div
-              id="about"
+              id="directions"
               className="absolute opacity-0"
               style={{ top: '-100px' }}
             ></div>
           </h1>
-
-          <div
-            className={`w-full max-w-screen-xl z-10`}
-            style={{ animationDelay: '0.15s', animationFillMode: 'forwards' }}
-          >
-            <div className="my-16 text-center md:text-start">
-              <InfoSection image={MetalImg}>
-                <p className="mt-4 text-center md:text-left text-sm md:text-base lg:text-lg font-medium leading-relaxed text-dark-400">
-                  {t('aboutUsText1')}
-                </p>
-              </InfoSection>
+          <Section>
+            <div className="hidden lg:block my-8 md:my-32">
+              <StickyScroll content={content} />
             </div>
-          </div>
-        </Section>
-        <Section>
-          <h1
-            className={`w-full max-w-screen-xl rellative text-center mt-32 bg-gradient-to-br from-black to-stone-500 bg-clip-text font-display text-3xl font-bold tracking-[-0.02em] text-transparent drop-shadow-sm md:text-4xl lg:text-5xl md:leading-[3.4rem] lg:leading-[3.8rem]`}
-          >
-            {t('aboutUs')}
             <div
-              id="about"
-              className="absolute opacity-0"
-              style={{ top: '-100px' }}
-            ></div>
-          </h1>
-
-          <div
-            className={`w-full max-w-screen-xl z-10`}
-            style={{ animationDelay: '0.15s', animationFillMode: 'forwards' }}
-          >
-            <div className="my-16 text-center md:text-start">
-              <InfoSection reverse image={MetalImg}>
-                <p className="mt-4 text-center md:text-left text-sm md:text-base lg:text-lg font-medium leading-relaxed text-dark-400">
-                  {t('aboutUsText1')}
-                </p>
-              </InfoSection>
+              className={`block lg:hidden mt-10 w-full max-w-screen-xl z-10`}
+            >
+              {content.map((item, index) => (
+                <div className="my-8 mb-24" key={index}>
+                  <InfoSection reverse={index % 2 === 0} image={item.image}>
+                    <h3 className="mb-3 mt-3 md:mt-0 text-center md:text-left font-bold text-primary-600 text-xl lg:text-2xl">
+                      {item.title}
+                    </h3>
+                    <p className="mt-4 text-center md:text-left text-sm md:text-base lg:text-lg font-medium leading-relaxed text-dark-400">
+                      {item.description}
+                    </p>
+                  </InfoSection>
+                </div>
+              ))}
             </div>
-          </div>
-        </Section>
-        <Section>
-          <h1
-            className={`w-full max-w-screen-xl rellative text-center mt-32 bg-gradient-to-br from-black to-stone-500 bg-clip-text font-display text-3xl font-bold tracking-[-0.02em] text-transparent drop-shadow-sm md:text-4xl lg:text-5xl md:leading-[3.4rem] lg:leading-[3.8rem]`}
-          >
-            {t('aboutUs')}
-            <div
-              id="about"
-              className="absolute opacity-0"
-              style={{ top: '-100px' }}
-            ></div>
-          </h1>
-
-          <div
-            className={`w-full max-w-screen-xl z-10`}
-            style={{ animationDelay: '0.15s', animationFillMode: 'forwards' }}
-          >
-            <div className="my-16 text-center md:text-start">
-              <InfoSection image={MetalImg}>
-                <p className="mt-4 text-center md:text-left text-sm md:text-base lg:text-lg font-medium leading-relaxed text-dark-400">
-                  {t('aboutUsText1')}
-                </p>
-              </InfoSection>
-            </div>
-          </div>
-        </Section>
+          </Section>
+        </div>
       </div>
     </div>
   )

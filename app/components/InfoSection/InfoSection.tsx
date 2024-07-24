@@ -21,7 +21,7 @@ export default function InfoSection({
         <div
           className={`w-full ${hideImage ? 'flex-[0-0-0]' : 'flex-1'} px-4 md:px-0 relative order-1 flex items-center ${reverse ? 'md:order-1' : 'md:order-2'}`}
         >
-          <div className="xl:rounded-lg rounded-lg overflow-hidden w-full">
+          <div className="xl:rounded-2xl rounded-lg overflow-hidden w-full">
             <Image
               className="object-cover w-full aspect-[6/4]"
               src={image}

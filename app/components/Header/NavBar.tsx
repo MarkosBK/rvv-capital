@@ -1,26 +1,30 @@
 'use client'
 
-import Logo from '/public/images/logo.png'
+import Logo from '/public/images/logo.svg'
 import { useTranslations } from 'next-intl'
 import { Link } from '../Link/Link'
-import { phone } from '@/app/lib/constants'
 import LocaleSwitcher from '../LocaleSwitcher/LocaleSwitcher'
 import paths from '@/app/lib/paths'
 import headerLinks from '@/app/lib/header-links'
 import { NavbarNative } from './NavBarNative'
 import Image from 'next/image'
+import { information } from '@/lib/constants'
+import { usePathname } from 'next/navigation'
 
 export const NavBar = () => {
   const t = useTranslations()
+  const pathname = usePathname()
+  const currentLocale = (pathname.split('/')[1] ||
+    'uk') as keyof typeof information
 
   return (
     <>
-      <header className="flex items-center justify-between sticky top-0 w-full bg-white z-30 transition-all">
+      <header className="flex items-center justify-between sticky top-[3px] w-full bg-white z-30 transition-all">
         <div className="mx-5 flex h-16 max-w-screen-xl items-center justify-between">
           <Link href={paths.home()}>
             <div className="flex items-center justify-between">
               <div className="mr-3">
-                <Image src={Logo} alt="Logo" className="h-8 w-auto" />
+                <Image src={Logo} alt="Logo" className="h-12 w-auto" />
               </div>
             </div>
           </Link>
@@ -31,17 +35,17 @@ export const NavBar = () => {
               <Link
                 key={link.title}
                 href={link.href}
-                className="p-1 font-medium text-primary-700 hover:text-primary-400 transition-all duration-150"
+                className="p-1 font-medium text-gray-700 hover:text-gray-400 transition-all duration-150"
               >
                 {t(link.title)}
               </Link>
             ))}
           </div>
           <Link
-            href={`tel:${phone}`}
-            className="hidden md:block p-1 font-medium text-primary-700 hover:text-primary-400 transition-all duration-150 mr-4"
+            href={`tel:${information[currentLocale].phone}`}
+            className="hidden md:block p-1 font-medium text-gray-700 hover:text-gray-400 transition-all duration-150 mr-4"
           >
-            {phone}
+            {information[currentLocale].phone}
           </Link>
           <LocaleSwitcher />
           <NavbarNative />

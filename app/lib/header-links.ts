@@ -1,7 +1,7 @@
 const headerLinks = [
-  { href: '#about', title: 'menu.about' },
+  { href: '#about', title: 'menu.aboutUs' },
   { href: '#advantages', title: 'menu.advantages' },
-  { href: '#contacts', title: 'menu.contacts' }
+  { href: '#directions', title: 'menu.directions' }
 ]
 
 export default headerLinks
