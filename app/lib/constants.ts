@@ -19,13 +19,13 @@ export const information = {
     address:
       'Building A1, Dubai Digital Park, Dubai Silicon Oasis, Dubai, United Arab Emirates',
     email: 'rvvcapitalgroup@gmail.com',
-    phone: '+349878971838'
+    phone: '+359878971838'
   },
   ru: {
     address:
       'Building A1, Dubai Digital Park, Dubai Silicon Oasis, Dubai, United Arab Emirates',
     email: 'rvvcapitalgroup@gmail.com',
-    phone: '+349878971838'
+    phone: '+359878971838'
   }
 }
 
