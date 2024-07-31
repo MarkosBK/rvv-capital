@@ -122,45 +122,45 @@ const App = async () => {
           <HeroComponent dark />
         </div>
       </Section>
-      <div className="flex md:hidden justify-center">
-        <div className="max-w-screen-lg w-full">
-          <h1
-            className={`w-full max-w-screen-xl relative text-center mt-32 bg-gradient-to-br from-black to-stone-500 bg-clip-text font-display text-3xl font-bold tracking-[-0.02em] text-transparent drop-shadow-sm md:text-4xl lg:text-5xl md:leading-[3.4rem] lg:leading-[3.8rem]`}
-          >
-            О нас
-            <AdaptiveBlock
-              bpLess="lg"
-              id="about"
-              className="absolute opacity-0"
-              style={{ top: '-100px' }}
-            ></AdaptiveBlock>
-          </h1>
-        </div>
-      </div>
 
       <Section className="block md:hidden px-4">
+        <div className="flex md:hidden justify-center">
+          <div className="max-w-screen-lg w-full">
+            <h1
+              className={`w-full max-w-screen-xl relative text-center mt-32 bg-gradient-to-br from-black to-stone-500 bg-clip-text font-display text-3xl font-bold tracking-[-0.02em] text-transparent drop-shadow-sm md:text-4xl lg:text-5xl md:leading-[3.4rem] lg:leading-[3.8rem]`}
+            >
+              {t('menu.aboutUs')}
+              <AdaptiveBlock
+                bpLess="lg"
+                id="about"
+                className="absolute opacity-0"
+                style={{ top: '-100px' }}
+              ></AdaptiveBlock>
+            </h1>
+          </div>
+        </div>
         <div className="w-20 mx-auto lg:mx-0 h-2 bg-primary-700 my-6 relative z-10"></div>
 
         <p className="block md:hidden text-lg lg:text-xl mb-10 relative z-10 text-center lg:text-start">
           {t('missionStatement')}
         </p>
       </Section>
-      <div className="flex justify-center">
-        <div className="max-w-screen-lg w-full">
-          <h1
-            className={`w-full max-w-screen-xl relative text-center mt-32 bg-gradient-to-br from-black to-stone-500 bg-clip-text font-display text-3xl font-bold tracking-[-0.02em] text-transparent drop-shadow-sm md:text-4xl lg:text-5xl md:leading-[3.4rem] lg:leading-[3.8rem]`}
-          >
-            {t('ourAdvantages')}
-            <div
-              id="advantages"
-              className="absolute opacity-0"
-              style={{ top: '-100px' }}
-            ></div>
-          </h1>
-        </div>
-      </div>
 
       <Section>
+        <div className="flex justify-center">
+          <div className="max-w-screen-lg w-full">
+            <h1
+              className={`w-full max-w-screen-xl relative text-center mt-32 bg-gradient-to-br from-black to-stone-500 bg-clip-text font-display text-3xl font-bold tracking-[-0.02em] text-transparent drop-shadow-sm md:text-4xl lg:text-5xl md:leading-[3.4rem] lg:leading-[3.8rem]`}
+            >
+              {t('ourAdvantages')}
+              <div
+                id="advantages"
+                className="absolute opacity-0"
+                style={{ top: '-100px' }}
+              ></div>
+            </h1>
+          </div>
+        </div>
         <div>
           <div className="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
             <div className="grid grid-cols-1 mt-10 text-center sm:mt-16 sm:grid-cols-2 sm:gap-x-12 gap-y-12 md:grid-cols-3 md:gap-0 xl:mt-24">
@@ -205,17 +205,17 @@ const App = async () => {
       </Section>
       <div className="flex justify-center">
         <div className="max-w-screen-lg w-full">
-          <h1
-            className={`w-full max-w-screen-xl relative text-center mt-32 bg-gradient-to-br from-black to-stone-500 bg-clip-text font-display text-3xl font-bold tracking-[-0.02em] text-transparent drop-shadow-sm md:text-4xl lg:text-5xl md:leading-[3.4rem] lg:leading-[3.8rem]`}
-          >
-            {t('mainActivities')}
-            <div
-              id="directions"
-              className="absolute opacity-0"
-              style={{ top: '-100px' }}
-            ></div>
-          </h1>
           <Section>
+            <h1
+              className={`w-full max-w-screen-xl relative text-center mt-32 bg-gradient-to-br from-black to-stone-500 bg-clip-text font-display text-3xl font-bold tracking-[-0.02em] text-transparent drop-shadow-sm md:text-4xl lg:text-5xl md:leading-[3.4rem] lg:leading-[3.8rem]`}
+            >
+              {t('mainActivities')}
+              <div
+                id="directions"
+                className="absolute opacity-0"
+                style={{ top: '-100px' }}
+              ></div>
+            </h1>
             <div className="hidden lg:block my-8 md:my-32">
               <StickyScroll content={content} />
             </div>
