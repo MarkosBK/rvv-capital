@@ -1,6 +1,9 @@
 import Image from 'next/image'
-import MetalImg from '/public/images/metal.jpeg'
+import MainImage from '/public/images/main-image.jpeg'
+import MainImageMobile from '/public/images/main-image-mobile.jpg'
+import MetalImg1 from '/public/images/metal1.jpeg'
 import MetalImg2 from '/public/images/metal2.jpg'
+import MetalImg3 from '/public/images/metal3.jpg'
 import { Section } from '@/components/Section'
 import { AnimatedText } from '@/components/AnimatedText/AnimatedText'
 // import { Boxes } from '@/components/BackgroundBoxes/BackgroundBoxes'
@@ -9,6 +12,7 @@ import { ChevronDown } from 'lucide-react'
 import { getTranslations } from 'next-intl/server'
 import { AdventageCard } from '@/components/AdventageCard'
 import InfoSection from '@/components/InfoSection/InfoSection'
+import { AdaptiveBlock } from '@/components/AdaptiveBlock/AdaptiveBlock'
 
 const App = async () => {
   const t = await getTranslations()
@@ -17,7 +21,7 @@ const App = async () => {
     {
       title: t('tradingActivity'),
       description: t('comprehensiveServices'),
-      image: MetalImg
+      image: MetalImg1
     },
     {
       title: t('coalSupply'),
@@ -27,66 +31,119 @@ const App = async () => {
     {
       title: t('scrapMetalSupply'),
       description: t('scrapMetalSupplyDetails'),
-      image: MetalImg
+      image: MetalImg3
     }
   ]
 
-  return (
-    <div className="flex flex-col w-full">
-      <div
-        id="about"
-        className="absolute opacity-0"
-        style={{ top: '-100px' }}
-      ></div>
-      <Section moveSize={0} delay={0}>
-        <div className="flex flex-wrap">
-          <div className="w-full sm:w-8/12 relative overflow-hidden">
-            {/* <Boxes /> */}
+  const imageStyleMobile = {
+    backgroundSize: 'cover',
+    backgroundPosition: 'center',
+    backgroundRepeat: 'no-repeat',
+    backgroundImage: `url('${MainImageMobile.src}')`
+  }
 
-            <div className="mx-auto h-full py-10 sm:px-10">
-              <nav className="flex px-4 justify-center lg:justify-between items-center">
-                <div className="text-3xl lg:text-4xl font-bold relative z-10 ">
-                  <span>RVV CAPITAL GROUP</span>
-                </div>
-              </nav>
-              <div className="container px-4 lg:flex mt-10 items-center h-full lg:mt-0">
-                <div className="w-full">
-                  <h1 className="text-2xl lg:text-5xl font-bold relative z-10 text-center lg:text-start">
-                    <AnimatedText
-                      el="span"
-                      text={[t('leadingInternationalSupplier')]}
-                      repeatDelay={100000}
-                      className="relative z-10"
-                    />
-                  </h1>
-                  <div className="w-20 mx-auto lg:mx-0 h-2 bg-primary-700 my-10 lg:my-6 relative z-10"></div>
-                  <p className="text-lg lg:text-xl mb-10 relative z-10 text-center lg:text-start">
-                    {/* <ReadMore
+  const HeroComponent = ({ dark = false }: { dark?: boolean }) => {
+    return (
+      <div
+        className={`h-[calc(100vh-64px)] md:h-auto flex justify-center md:justify-start flex-wrap ${dark && 'text-white'}`}
+      >
+        <div className="w-full sm:w-8/12 relative overflow-hidden">
+          {/* <Boxes /> */}
+
+          <div className="mx-auto h-full py-40 md:py-10 sm:px-10">
+            <nav className="flex px-4 justify-center lg:justify-between items-center">
+              <div className="text-3xl lg:text-4xl font-bold relative z-10 ">
+                <span>RVV CAPITAL GROUP</span>
+              </div>
+            </nav>
+            <div className="container px-4 lg:flex mt-10 items-center h-full lg:mt-0">
+              <div className="w-full">
+                <h1 className="text-2xl lg:text-5xl font-bold relative z-10 text-center lg:text-start">
+                  <AnimatedText
+                    el="span"
+                    text={[t('leadingInternationalSupplier')]}
+                    repeatDelay={100000}
+                    className="relative z-10"
+                  />
+                </h1>
+                <div className="hidden md:block w-20 mx-auto lg:mx-0 h-2 bg-primary-700 my-6 relative z-10"></div>
+                <p className="hidden md:block text-lg lg:text-xl mb-10 relative z-10 text-center lg:text-start">
+                  {/* <ReadMore
                       id="read-more-text"
                       amountOfWords={24}
                       text={t('missionStatement')}
                     /> */}
-                    {t('missionStatement')}
-                  </p>
-                  <div className="lg:mr-auto lg:w-min mt-20 lg:mt-16 flex justify-center">
-                    <a
-                      href="#advantages"
-                      className="text-nowrap flex items-center relative z-10 bg-primary-700 text-white active:opacity-80 transition-opacity duration-100 text-xl font-medium px-4 py-2"
-                    >
-                      {t('moreDetails')}
-                      <ChevronDown className="w-6 h-6 mt-[2px] ml-1" />
-                    </a>
-                  </div>
+                  {t('missionStatement')}
+                </p>
+                <div className="lg:mr-auto lg:w-min mt-20 lg:mt-16 flex justify-center">
+                  <a
+                    href="#advantages"
+                    className="hidden md:flex text-nowrap items-center relative z-10 bg-primary-800 text-white active:opacity-80 transition-opacity duration-100 text-xl font-medium px-6 py-3"
+                  >
+                    {t('moreDetails')}
+                    <ChevronDown className="w-6 h-6 mt-[2px] ml-1" />
+                  </a>
+                  <a
+                    href="#about"
+                    className="flex md:hidden text-nowrap items-center relative z-10 bg-primary-800 text-white active:opacity-80 transition-opacity duration-100 text-xl font-medium px-6 py-3"
+                  >
+                    {t('moreDetails')}
+                    <ChevronDown className="w-6 h-6 mt-[2px] ml-1" />
+                  </a>
                 </div>
               </div>
             </div>
           </div>
-          <Image
-            src={MetalImg}
-            alt="Leafs"
-            className="hidden md:block w-full h-48 object-cover sm:h-[calc(100vh-64px)] sm:w-4/12"
-          />
         </div>
+        <Image
+          src={MainImage}
+          alt="Leafs"
+          className="hidden md:block w-full h-48 object-cover sm:h-[calc(100vh-64px)] sm:w-4/12"
+        />
+      </div>
+    )
+  }
+
+  return (
+    <div className="flex flex-col w-full">
+      <AdaptiveBlock
+        bpMore="md"
+        id="about"
+        className="absolute opacity-0"
+        style={{ top: '-100px' }}
+      ></AdaptiveBlock>
+
+      <Section moveSize={0} delay={0}>
+        <div className="hidden md:block">
+          <HeroComponent />
+        </div>
+        <div className="block md:hidden relative" style={imageStyleMobile}>
+          <div className="absolute h-full w-full left-0 top-0 backdrop-blur-none bg-black/50"></div>
+          <HeroComponent dark />
+        </div>
+      </Section>
+      <div className="flex md:hidden justify-center">
+        <div className="max-w-screen-lg w-full">
+          <h1
+            className={`w-full max-w-screen-xl relative text-center mt-32 bg-gradient-to-br from-black to-stone-500 bg-clip-text font-display text-3xl font-bold tracking-[-0.02em] text-transparent drop-shadow-sm md:text-4xl lg:text-5xl md:leading-[3.4rem] lg:leading-[3.8rem]`}
+          >
+            О нас
+            <AdaptiveBlock
+              bpLess="lg"
+              id="about"
+              className="absolute opacity-0"
+              style={{ top: '-100px' }}
+            ></AdaptiveBlock>
+          </h1>
+        </div>
+      </div>
+
+      <Section className="block md:hidden px-4">
+        <div className="w-20 mx-auto lg:mx-0 h-2 bg-primary-700 my-6 relative z-10"></div>
+
+        <p className="block md:hidden text-lg lg:text-xl mb-10 relative z-10 text-center lg:text-start">
+          {t('missionStatement')}
+        </p>
       </Section>
       <div className="flex justify-center">
         <div className="max-w-screen-lg w-full">

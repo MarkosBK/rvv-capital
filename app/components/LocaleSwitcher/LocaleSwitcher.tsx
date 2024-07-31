@@ -52,7 +52,7 @@ const LocaleSwitcher = () => {
             <Image
               className="h-5 w-5"
               src={language.flag}
-              alt={t(`language-${language.locale}`)}
+              alt={t(`languages.${language.locale}`)}
             />
             <span className="ml-2">{t(`languages.${language.locale}`)}</span>
           </li>

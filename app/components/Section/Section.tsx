@@ -6,13 +6,14 @@ import { SectionProps } from './Section.types'
 export const Section = ({
   children,
   moveSize = 200,
-  delay = 0.5
+  delay = 0.1,
+  ...props
 }: SectionProps) => {
   const ref = useRef(null)
   const isInView = useInView(ref, { once: true })
 
   return (
-    <section ref={ref}>
+    <section ref={ref} {...props}>
       <div
         style={{
           transform: isInView ? 'none' : `translateY(${moveSize}px)`,
