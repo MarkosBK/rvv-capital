@@ -60,7 +60,7 @@ export const StickyScroll = ({
                 key={item.title + index}
                 className={`my-20 lg:my-40 ${index === content.length - 1 && 'mb-10'} ${index === 0 && 'mt-10'}`}
               >
-                <h2 className={cn('text-2xl font-bold text-gray-500')}>
+                <h2 className={cn('text-2xl font-bold text-primary-800')}>
                   {item.title}
                 </h2>
                 <p className="text-lg text-gray-600 mt-10">

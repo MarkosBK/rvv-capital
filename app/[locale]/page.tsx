@@ -13,6 +13,11 @@ import { getTranslations } from 'next-intl/server'
 import { AdventageCard } from '@/components/AdventageCard'
 import InfoSection from '@/components/InfoSection/InfoSection'
 import { AdaptiveBlock } from '@/components/AdaptiveBlock/AdaptiveBlock'
+import GlobalPartnerIcon from '/public/icons/global_partner.png'
+import ProfessionalismIcon from '/public/icons/professionalism.png'
+import QualityIcon from '/public/icons/quality.png'
+import LongTermPartnersIcon from '/public/icons/long_term_partners.png'
+import ReliablePartnerIcon from '/public/icons/reliable_partner.png'
 
 const App = async () => {
   const t = await getTranslations()
@@ -66,7 +71,7 @@ const App = async () => {
                     className="relative z-10"
                   />
                 </h1>
-                <div className="hidden md:block w-20 mx-auto lg:mx-0 h-2 bg-primary-700 my-6 relative z-10"></div>
+                <div className="hidden md:block w-20 mx-auto lg:mx-0 h-2 bg-primary-500 my-6 relative z-10"></div>
                 <p className="hidden md:block text-lg lg:text-xl mb-10 relative z-10 text-center lg:text-start">
                   {/* <ReadMore
                       id="read-more-text"
@@ -78,7 +83,7 @@ const App = async () => {
                 <div className="lg:mr-auto lg:w-min mt-20 lg:mt-16 flex justify-center">
                   <a
                     href="#advantages"
-                    className="hidden md:flex text-nowrap items-center relative z-10 bg-primary-800 text-white active:opacity-80 transition-opacity duration-100 text-xl font-medium px-6 py-3"
+                    className="hidden md:flex text-nowrap items-center relative z-10 bg-primary-600 text-white active:opacity-80 transition-opacity duration-100 text-xl font-medium px-6 py-3"
                   >
                     {t('moreDetails')}
                     <ChevronDown className="w-6 h-6 mt-[2px] ml-1" />
@@ -123,78 +128,78 @@ const App = async () => {
         </div>
       </Section>
 
-      <Section className="block md:hidden px-4">
-        <div className="flex md:hidden justify-center">
-          <div className="max-w-screen-lg w-full">
-            <h1
-              className={`w-full max-w-screen-xl relative text-center mt-32 bg-gradient-to-br from-black to-stone-500 bg-clip-text font-display text-3xl font-bold tracking-[-0.02em] text-transparent drop-shadow-sm md:text-4xl lg:text-5xl md:leading-[3.4rem] lg:leading-[3.8rem]`}
-            >
-              {t('menu.aboutUs')}
-              <AdaptiveBlock
-                bpLess="lg"
-                id="about"
-                className="absolute opacity-0"
-                style={{ top: '-100px' }}
-              ></AdaptiveBlock>
-            </h1>
-          </div>
+      <div className="flex md:hidden justify-center">
+        <div className="max-w-screen-lg w-full">
+          <h1
+            className={`w-full max-w-screen-xl relative text-center mt-32 bg-gradient-to-br from-black to-stone-500 bg-clip-text font-display text-3xl font-bold tracking-[-0.02em] text-transparent drop-shadow-sm md:text-4xl lg:text-5xl md:leading-[3.4rem] lg:leading-[3.8rem]`}
+          >
+            {t('menu.aboutUs')}
+            <AdaptiveBlock
+              bpLess="lg"
+              id="about"
+              className="absolute opacity-0"
+              style={{ top: '-100px' }}
+            ></AdaptiveBlock>
+          </h1>
         </div>
-        <div className="w-20 mx-auto lg:mx-0 h-2 bg-primary-700 my-6 relative z-10"></div>
+      </div>
+      <Section className="block md:hidden px-4">
+        <div className="w-20 mx-auto lg:mx-0 h-2 bg-primary-500 my-6 relative z-10"></div>
 
         <p className="block md:hidden text-lg lg:text-xl mb-10 relative z-10 text-center lg:text-start">
           {t('missionStatement')}
         </p>
       </Section>
 
-      <Section>
-        <div className="flex justify-center">
-          <div className="max-w-screen-lg w-full">
-            <h1
-              className={`w-full max-w-screen-xl relative text-center mt-32 bg-gradient-to-br from-black to-stone-500 bg-clip-text font-display text-3xl font-bold tracking-[-0.02em] text-transparent drop-shadow-sm md:text-4xl lg:text-5xl md:leading-[3.4rem] lg:leading-[3.8rem]`}
-            >
-              {t('ourAdvantages')}
-              <div
-                id="advantages"
-                className="absolute opacity-0"
-                style={{ top: '-100px' }}
-              ></div>
-            </h1>
-          </div>
+      <div className="flex justify-center">
+        <div className="max-w-screen-lg w-full">
+          <h1
+            className={`w-full max-w-screen-xl relative text-center mt-32 bg-gradient-to-br from-black to-stone-500 bg-clip-text font-display text-3xl font-bold tracking-[-0.02em] text-transparent drop-shadow-sm md:text-4xl lg:text-5xl md:leading-[3.4rem] lg:leading-[3.8rem]`}
+          >
+            {t('ourAdvantages')}
+            <div
+              id="advantages"
+              className="absolute opacity-0"
+              style={{ top: '-100px' }}
+            ></div>
+          </h1>
         </div>
+      </div>
+      <Section>
         <div>
-          <div className="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
+          <div className="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8 mt-16 md:mt-0">
             <div className="grid grid-cols-1 mt-10 text-center sm:mt-16 sm:grid-cols-2 sm:gap-x-12 gap-y-12 md:grid-cols-3 md:gap-0 xl:mt-24">
               <AdventageCard
-                color="bg-primary-100"
+                icon={GlobalPartnerIcon}
                 title={t('globalPartnerNetwork')}
                 description={t('globalPartnerNetworkDetails')}
               />
               <AdventageCard
-                color="bg-primary-200"
+                icon={ProfessionalismIcon}
                 title={t('professionalismAndReliability')}
                 description={t('professionalismAndReliabilityDetails')}
                 className="md:border-l md:border-gray-200"
               />
               <AdventageCard
-                color="bg-primary-300"
+                icon={QualityIcon}
                 title={t('qualityAndResponsibility')}
                 description={t('qualityAndResponsibilityDetails')}
                 className="md:border-l md:border-gray-200"
               />
               <AdventageCard
-                color="bg-primary-300"
+                icon={LongTermPartnersIcon}
                 title={t('longTermCooperation')}
                 description={t('longTermCooperationDetails')}
                 className="md:border-t md:border-gray-200"
               />
               <AdventageCard
-                color="bg-primary-200"
+                icon={ReliablePartnerIcon}
                 title={t('reliablePartner')}
                 description={t('reliablePartnerDetails')}
                 className="md:border-l md:border-gray-200 md:border-t"
               />
               <AdventageCard
-                color=""
+                icon={null}
                 title=""
                 description=""
                 className="hidden md:block md:border-l md:border-gray-200 md:border-t"
@@ -205,17 +210,17 @@ const App = async () => {
       </Section>
       <div className="flex justify-center">
         <div className="max-w-screen-lg w-full">
+          <h1
+            className={`w-full max-w-screen-xl relative text-center mt-32 bg-gradient-to-br from-black to-stone-500 bg-clip-text font-display text-3xl font-bold tracking-[-0.02em] text-transparent drop-shadow-sm md:text-4xl lg:text-5xl md:leading-[3.4rem] lg:leading-[3.8rem]`}
+          >
+            {t('mainActivities')}
+            <div
+              id="directions"
+              className="absolute opacity-0"
+              style={{ top: '-100px' }}
+            ></div>
+          </h1>
           <Section>
-            <h1
-              className={`w-full max-w-screen-xl relative text-center mt-32 bg-gradient-to-br from-black to-stone-500 bg-clip-text font-display text-3xl font-bold tracking-[-0.02em] text-transparent drop-shadow-sm md:text-4xl lg:text-5xl md:leading-[3.4rem] lg:leading-[3.8rem]`}
-            >
-              {t('mainActivities')}
-              <div
-                id="directions"
-                className="absolute opacity-0"
-                style={{ top: '-100px' }}
-              ></div>
-            </h1>
             <div className="hidden lg:block my-8 md:my-32">
               <StickyScroll content={content} />
             </div>
@@ -225,7 +230,7 @@ const App = async () => {
               {content.map((item, index) => (
                 <div className="my-8 mb-24" key={index}>
                   <InfoSection reverse={index % 2 === 0} image={item.image}>
-                    <h3 className="mb-3 mt-3 md:mt-0 text-center md:text-left font-bold text-primary-600 text-xl lg:text-2xl">
+                    <h3 className="mb-3 mt-3 md:mt-0 text-center md:text-left font-bold text-primary-800 text-xl lg:text-2xl">
                       {item.title}
                     </h3>
                     <p className="mt-4 text-center md:text-left text-sm md:text-base lg:text-lg font-medium leading-relaxed text-dark-400">
