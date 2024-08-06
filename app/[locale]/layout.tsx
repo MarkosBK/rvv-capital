@@ -51,5 +51,5 @@ export default function RootLayout({
 export const metadata: Metadata = {
   title: 'RVV Captial Group',
   description:
-    'Компания RVV Capital Group является признанным лидером в сфере трейдинга и поставок промышленных ресурсов, таких как каменный уголь и металлолом. Наша миссия заключается в обеспечении бесперебойных поставок качественного сырья на производственные предприятия по всему миру, способствуя развитию индустрии и поддержанию стабильности в снабжении.'
+    'RVV Capital Group is a recognized leader in the field of trading and supply of industrial resources such as coal and scrap metal. Our mission is to ensure the uninterrupted supply of quality raw materials to manufacturing enterprises worldwide, contributing to industry development and supply stability.'
 }
