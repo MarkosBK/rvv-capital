@@ -3,7 +3,7 @@
 import Logo from '/public/images/logo.svg'
 import { useTranslations } from 'next-intl'
 import { Link } from '../Link/Link'
-import LocaleSwitcher from '../LocaleSwitcher/LocaleSwitcher'
+// import LocaleSwitcher from '../LocaleSwitcher/LocaleSwitcher'
 import paths from '@/app/lib/paths'
 import headerLinks from '@/app/lib/header-links'
 import { NavbarNative } from './NavBarNative'
@@ -47,7 +47,7 @@ export const NavBar = () => {
           >
             {information[currentLocale].phone}
           </Link>
-          <LocaleSwitcher />
+          {/* <LocaleSwitcher /> */}
           <NavbarNative />
         </div>
         {/* <div>
